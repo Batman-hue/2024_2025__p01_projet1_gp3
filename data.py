@@ -19,7 +19,7 @@ def is_a_valid_base(base):
     return is_a_valid_base
 
 def check_base_base_validity(basen):
-    return basen in hex_base_valid_base
+    return basen in hex_number_valid_chars
 
 bin_number_valid_chars = ["0", "1"]
 
