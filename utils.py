@@ -23,27 +23,27 @@
         
 # ask_for_the_init_number ()
 
-ask_for_the_target_base_text = "Choissisez une base entre binaire, héxadécimal ou décimal: "
+# ask_for_the_target_base_text = "Choissisez une base entre binaire, héxadécimal ou décimal: "
 
-ask_again_for_the_target_base_text = "Base incorrect; réessaie : "
+# ask_again_for_the_target_base_text = "Base incorrect; réessaie : "
 
-def ask_for_the_target_base ():
-    answer_target_base = input (ask_for_the_target_base_text)
-    while True:
-        if answer_target_base == "binaire":
-           target_base = 2
-           break
-        elif answer_target_base == "décimal":
-           target_base = 10
-           break
-        elif answer_target_base == "héxadécimal":
-            target_base = 16
-            break
-        else:
-            answer_target_base = input(ask_again_for_the_target_base_text)
-    return target_base
+# def ask_for_the_target_base ():
+#     answer_target_base = input (ask_for_the_target_base_text)
+#     while True:
+#         if answer_target_base == "binaire":
+#            target_base = 2
+#            break
+#         elif answer_target_base == "décimal":
+#            target_base = 10
+#            break
+#         elif answer_target_base == "héxadécimal":
+#             target_base = 16
+#             break
+#         else:
+#             answer_target_base = input(ask_again_for_the_target_base_text)
+#     return target_base
 
-ask_for_the_target_base()
+# ask_for_the_target_base()
 
 
 
