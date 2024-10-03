@@ -74,7 +74,7 @@ def dec_to_hex (init_number):
             power = power + 1
         else:
             power = power - 1 
-            break
+            break 
         if init_number == 16 ** power :
             break
     while power > -1 :
@@ -96,4 +96,4 @@ def dec_to_hex (init_number):
             power = power - 1
     return target_number
 
-print(dec_to_hex(123))
+print(dec_to_hex(15))
