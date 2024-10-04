@@ -1,12 +1,25 @@
 from data import*
 
+bin_number_valid_chars = ["0", "1"]
+
+dec_number_valid_chars = \
+    bin_number_valid_chars \
+  + ["2", "3", "4", "5", "6", "7", "8", "9"]
+
+hex_number_valid_chars = \
+    dec_number_valid_chars \
+  + ["A", "B", "C", "D", "E", "F"] \
+  + ["a", "b", "c", "d", "e", "f"]
+
+def check_char_number_validity (char):
+    return char in hex_number_valid_chars
 
 ask_for_the_init_number_text = "Nombre choisi:"
 
 ask_again_for_the_init_number_text = "Nombre incorrect; réessaie : "
 
 def check_char_number_validity (char):
-    return char in hex_number_valid_chars
+    return char in hex_number_valid_chars 
 
 def is_a_valid_number (number):
     i = 0
@@ -24,27 +37,27 @@ def ask_for_the_init_number ():
         
 ask_for_the_init_number ()
 
-# ask_for_the_target_base_text = "Choissisez une base entre binaire, héxadécimal ou décimal: "
+ask_for_the_target_base_text = "Choissisez la base dans laquelle le nombre sera converti entre binaire, héxadécimal ou décimal ?  "
 
-# ask_again_for_the_target_base_text = "Base incorrect; réessaie : "
+ask_again_for_the_target_base_text = "Base incorrect; réessaie : "
 
-# def ask_for_the_target_base ():
-#     answer_target_base = input (ask_for_the_target_base_text)
-#     while True:
-#         if answer_target_base == "binaire":
-#            target_base = 2
-#            break
-#         elif answer_target_base == "décimal":
-#            target_base = 10
-#            break
-#         elif answer_target_base == "héxadécimal":
-#             target_base = 16
-#             break
-#         else:
-#             answer_target_base = input(ask_again_for_the_target_base_text)
-#     return target_base
+def ask_for_the_target_base ():
+    answer_target_base = input (ask_for_the_target_base_text)
+    while True:
+        if answer_target_base == "binaire":
+           target_base = 2
+           break
+        elif answer_target_base == "décimal":
+           target_base = 10
+           break
+        elif answer_target_base == "héxadécimal":
+            target_base = 16
+            break
+        else:
+            answer_target_base = input(ask_again_for_the_target_base_text)
+    return target_base
 
-# ask_for_the_target_base()
+ask_for_the_target_base()
 
 
 
