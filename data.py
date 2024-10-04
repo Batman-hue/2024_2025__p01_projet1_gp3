@@ -1,4 +1,3 @@
-
 from utils import*
 ask_for_the_init_base_text = "La base ?"
 ask_again_for_the_init_base_text = "LA BASE "
