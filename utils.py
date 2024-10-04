@@ -1,5 +1,6 @@
 from data import*
 
+
 ask_for_the_init_number_text = "Nombre choisi:"
 
 ask_again_for_the_init_number_text = "Nombre incorrect; réessaie : "
