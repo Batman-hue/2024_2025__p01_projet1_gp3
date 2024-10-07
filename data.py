@@ -1,5 +1,9 @@
 from utils import*
 
+hex_number_valid_chars = \
+    dec_number_valid_chars \
+  + ["A", "B", "C", "D", "E", "F"] \
+  + ["a", "b", "c", "d", "e", "f"]
 ask_for_the_init_base_text = "Quelle est la base du nombre ?  "
 ask_again_for_the_init_base_text = "LA BASE "
 

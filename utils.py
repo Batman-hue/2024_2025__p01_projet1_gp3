@@ -1,5 +1,9 @@
 from data import*
 
+ask_for_the_target_base_text = "Choissisez la base dans laquelle le nombre sera converti entre binaire, héxadécimal ou décimal:  "
+
+ask_again_for_the_target_base_text = "Base incorrect; réessaie (ne pas mettre de majuscules):  "
+
 bin_number_valid_chars = ["0", "1"]
 
 dec_number_valid_chars = \
@@ -14,9 +18,9 @@ hex_number_valid_chars = \
 def check_char_number_validity (char):
     return char in hex_number_valid_chars
 
-ask_for_the_init_number_text = "Nombre choisi:"
+ask_for_the_init_number_text = "Choisis un nombre:  "
 
-ask_again_for_the_init_number_text = "Nombre incorrect; réessaie : "
+ask_again_for_the_init_number_text = "Nombre incorrect; réessaie :  "
 
 def check_char_number_validity (char):
     return char in hex_number_valid_chars 
@@ -34,12 +38,6 @@ def ask_for_the_init_number ():
     while not (is_a_valid_number (init_number)) == True:
         init_number = input (ask_again_for_the_init_number_text)
     return init_number
-        
-ask_for_the_init_number ()
-
-ask_for_the_target_base_text = "Choissisez la base dans laquelle le nombre sera converti entre binaire, héxadécimal ou décimal ?  "
-
-ask_again_for_the_target_base_text = "Base incorrect; réessaie : "
 
 def ask_for_the_target_base ():
     answer_target_base = input (ask_for_the_target_base_text)
@@ -57,7 +55,7 @@ def ask_for_the_target_base ():
             answer_target_base = input(ask_again_for_the_target_base_text)
     return target_base
 
-ask_for_the_target_base()
+
 
 
 

@@ -30,6 +30,7 @@ def get_infos ():
         bin_dec_hex__to__bin_dec_hex (init_number, \
                                       init_base, \
                                         target_base)
+    return target_number
     
 print(get_infos ())
 
