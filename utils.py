@@ -1,5 +1,3 @@
-from data import*
-
 ask_for_the_target_base_text = "Choissisez la base dans laquelle le nombre sera converti entre binaire, héxadécimal ou décimal:  "
 
 ask_again_for_the_target_base_text = "Base incorrect; réessaie (ne pas mettre de majuscules):  "
@@ -54,12 +52,3 @@ def ask_for_the_target_base ():
         else:
             answer_target_base = input(ask_again_for_the_target_base_text)
     return target_base
-
-
-
-
-
-
-
-
-

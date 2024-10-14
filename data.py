@@ -1,9 +1,16 @@
-from utils import*
+bin_number_valid_chars = ["0", "1"]
+
+dec_number_valid_chars = \
+    bin_number_valid_chars \
+  + ["2", "3", "4", "5", "6", "7", "8", "9"]
 
 hex_number_valid_chars = \
     dec_number_valid_chars \
   + ["A", "B", "C", "D", "E", "F"] \
   + ["a", "b", "c", "d", "e", "f"]
+
+possible_base = "2", "10", "16"
+
 ask_for_the_init_base_text = "Quelle est la base du nombre ?  "
 ask_again_for_the_init_base_text = "LA BASE "
 
@@ -25,3 +32,10 @@ def is_a_valid_base(base):
 
 def check_base_base_validity(basen):
     return basen in hex_number_valid_chars
+
+def possible_base(baser):
+    for i in range(possible_base):
+        if i == "2" "10" "16":
+            return True
+        else:
+            return ask_again_for_the_init_base_text
