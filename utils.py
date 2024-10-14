@@ -1,54 +1,133 @@
-ask_for_the_target_base_text = "Choissisez la base dans laquelle le nombre sera converti entre binaire, héxadécimal ou décimal:  "
+from data import*
+from main import*
+def ask_for_the_target_base ():
+    target_base = input("Base dans laquelle le nombre doit être converti(en chiffre):  ")
+    while not (is_a_valid_base (target_base)) == True:
+        target_base = input ("Base incorrecte, veuillez réessayer:  ")
+    return target_base
 
-ask_again_for_the_target_base_text = "Base incorrect; réessaie (ne pas mettre de majuscules):  "
 
-bin_number_valid_chars = ["0", "1"]
-
-dec_number_valid_chars = \
-    bin_number_valid_chars \
-  + ["2", "3", "4", "5", "6", "7", "8", "9"]
-
-hex_number_valid_chars = \
-    dec_number_valid_chars \
-  + ["A", "B", "C", "D", "E", "F"] \
-  + ["a", "b", "c", "d", "e", "f"]
-
-def check_char_number_validity (char):
-    return char in hex_number_valid_chars
-
-ask_for_the_init_number_text = "Choisis un nombre:  "
-
-ask_again_for_the_init_number_text = "Nombre incorrect; réessaie :  "
-
-def check_char_number_validity (char):
-    return char in hex_number_valid_chars 
-
-def is_a_valid_number (number):
-    i = 0
-    is_a_valid_char = True
-    while is_a_valid_char == True and i <= len (number) - 1:
-        is_a_valid_char = check_char_number_validity (number [i])
-        i = i + 1
-    return is_a_valid_char
-
-def ask_for_the_init_number ():
-    init_number = input (ask_for_the_init_number_text)
-    while not (is_a_valid_number (init_number)) == True:
-        init_number = input (ask_again_for_the_init_number_text)
+def ask_for_the_init_number (init_base):
+    init_number = input ("Nombre choisi:  ")
+    while not (is_a_valid_number (init_number,init_base)) == True:
+        init_number = input ("Nombre incorrect, veuillez réessayer:  ")
     return init_number
 
-def ask_for_the_target_base ():
-    answer_target_base = input (ask_for_the_target_base_text)
-    while True:
-        if answer_target_base == "binaire":
-           target_base = 2
-           break
-        elif answer_target_base == "décimal":
-           target_base = 10
-           break
-        elif answer_target_base == "héxadécimal":
-            target_base = 16
-            break
+def is_a_valid_number (number,base):
+    flm = 0
+    number = f"{number}"
+    if base == "2":
+        for i in number:
+            if i in bin_number_valid_chars:
+                flm = flm + 1
+        if flm == len(number):
+            return True
         else:
-            answer_target_base = input(ask_again_for_the_target_base_text)
-    return target_base
+            return False
+    if base == "10":
+        for i in number:
+            if i in dec_number_valid_chars:
+                flm = flm + 1
+        if flm == len(number):
+            return True
+        else:
+            return False
+    if base == "16":
+        for i in number:
+            if i in hex_number_valid_chars:
+                flm = flm + 1
+        if flm == len(number):
+            return True
+        else:
+            return False
+        
+def ask_for_the_init_base ():
+    init_base = input("Base d'origine du nombre (en chiffre):  ")
+    while not (is_a_valid_base (init_base)) == True:
+        init_base = input ("Base incorrecte, veuillez réessayer:  ")
+    return init_base
+
+
+def is_a_valid_base(base):
+    if base == "2" or base == "10" or base == "16":
+        return True
+    else:
+        return False
+
+def dec_to_bin (init_number):
+    power = 0 
+    target_number = ""
+    init_number = float(init_number)
+    while True :
+        if init_number >= 2 ** power :
+            power = power + 1
+        else:
+            power = power - 1 
+            break
+        if init_number == 2 ** power :
+            break
+    while power > -1 :
+        if init_number >= 2 ** power :
+            init_number = init_number - 2 ** power
+            target_number = target_number + "1"
+            power = power - 1
+        else:
+            target_number = target_number + "0"
+            power = power - 1
+    return target_number
+
+def bin_to_dec (init_number):
+    power = len(f"{init_number}") - 1
+    target_number = 0
+    init_number = float(init_number)
+    while power > -1:
+        if 10 ** power <= init_number:
+            target_number = target_number + 2 ** power
+            init_number = init_number - 10 ** power
+        power = power - 1
+    return target_number 
+
+def dec_to_hex (init_number):
+    power = 0
+    target_number = ""
+    multiplicator = 0
+    init_number = float(init_number)
+    while True :
+        if init_number >= 16 ** power :
+            power = power + 1
+        else:
+            power = power - 1 
+            break 
+        if init_number == 16 ** power :
+            break
+    while power > -1 :
+        if init_number == multiplicator * 16 ** power:
+            target_number = target_number + f"{conversion[multiplicator]}"
+            init_number = init_number - multiplicator * 16 ** power
+            power = power - 1
+            multiplicator = 0
+        if init_number < multiplicator * 16 ** power:
+            multiplicator = multiplicator - 1
+            target_number = target_number + f"{conversion[multiplicator]}"
+            init_number = init_number - multiplicator * 16 ** power
+            power = power - 1
+            multiplicator = 0
+        else:
+            multiplicator = multiplicator + 1
+        if multiplicator == 16:
+            multiplicator = 0
+            power = power - 1
+    return target_number
+
+def hex_to_dec(init_number):
+    target_number = 0
+    init_number = f"{init_number}"
+    power = len(init_number) - 1
+    for i in init_number:
+        if hex_number_valid_chars.index(i) > 15:
+            target_number = target_number + ((16 ** power) * (hex_number_valid_chars.index(i) - 6))
+            power = power - 1
+        else:
+            target_number = target_number + ((16 ** power) * hex_number_valid_chars.index(i))
+            power = power - 1
+    return target_number
