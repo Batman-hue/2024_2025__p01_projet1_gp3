@@ -1,5 +1,5 @@
 from data import*
-from main import*
+
 def ask_for_the_target_base ():
     target_base = input("Base dans laquelle le nombre doit être converti(en chiffre):  ")
     while not (is_a_valid_base (target_base)) == True:

@@ -1,6 +1,5 @@
 from math import*
 from utils import*
-from data import*
 
 def get_infos ():
     init_base = ask_for_the_init_base()
