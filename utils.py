@@ -1,34 +1,34 @@
-from data import*
+from data import*     # Importe les variables stockées dans le fichier data.
 
 
 
-def ask_for_the_target_base ():
+def ask_for_the_target_base ():     # Demande dans quelle base le nombre devra être converti.
     target_base = input("Base dans laquelle le nombre doit être converti(en chiffre):  ")
-    while not (is_a_valid_base (target_base)) == True:
+    while not (is_a_valid_base (target_base)) == True:     # Relance la demande si la réponse fournie n'est pas supportée par le programme.
         target_base = input ("Base incorrecte, veuillez réessayer:  ")
     return target_base
 
 
-def ask_for_the_init_number (init_base):
+def ask_for_the_init_number (init_base):     # Demande quel est le nombre à convertir.
     init_number = input ("Nombre choisi:  ")
-    while not (is_a_valid_number (init_number,init_base)) == True:
+    while not (is_a_valid_number (init_number,init_base)) == True:     # Relance la demande si la réponse fournie n'est pas supportée par le programme.
         init_number = input ("Nombre incorrect, veuillez réessayer:  ")
     return init_number
 
-        
-def ask_for_the_init_base ():
+
+def ask_for_the_init_base ():     # Demande dans quelle base le nombre fourni sera.
     init_base = input("Base d'origine du nombre (en chiffre):  ")
-    while not (is_a_valid_base (init_base)) == True:
+    while not (is_a_valid_base (init_base)) == True:     # Relance la demande si la réponse fournie n'est pas supportée par le programme.
         init_base = input ("Base incorrecte, veuillez réessayer:  ")
     return init_base
 
 
 
-def is_a_valid_base(base):
+def is_a_valid_base(base):     # Vérifie si la base donnée est supportée par le programme.
     return base == "2" or base == "10" or base == "16"
 
 
-def is_a_valid_number (number,base):
+def is_a_valid_number (number,base):     # Vérifie si le nombre est valide dans la base donnée.
     number = f"{number}"
     if base == "2":
         for i in number:
@@ -48,7 +48,7 @@ def is_a_valid_number (number,base):
 
 
 
-def dec_to_bin (init_number):
+def dec_to_bin (init_number):     # Permet de convertir un nombre de base 10 en base 2.
     power = 0
     target_number = ""
     init_number = float(init_number)
@@ -64,7 +64,7 @@ def dec_to_bin (init_number):
     return target_number
 
 
-def bin_to_dec (init_number):
+def bin_to_dec (init_number):     # Permet de convertir un nombre de base 2 en base 10.
     target_number = 0
     init_number = f"{init_number}"
     power = len(init_number) - 1
@@ -74,7 +74,7 @@ def bin_to_dec (init_number):
     return target_number
 
 
-def dec_to_hex (init_number):
+def dec_to_hex (init_number):     # Permet de convertir un nombre de base 10 en base 16.
     power = 0
     target_number = ""
     multiplicator = 0
@@ -107,7 +107,7 @@ def dec_to_hex (init_number):
     return target_number
 
 
-def hex_to_dec(init_number):
+def hex_to_dec(init_number):     # Permet de convertir un nombre de base 16 en base 10.
     target_number = 0
     init_number = f"{init_number}"
     power = len(init_number) - 1
