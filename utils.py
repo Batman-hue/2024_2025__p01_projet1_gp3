@@ -1,10 +1,13 @@
 from data import*
 
+
+
 def ask_for_the_target_base ():
     target_base = input("Base dans laquelle le nombre doit être converti(en chiffre):  ")
     while not (is_a_valid_base (target_base)) == True:
         target_base = input ("Base incorrecte, veuillez réessayer:  ")
     return target_base
+
 
 def ask_for_the_init_number (init_base):
     init_number = input ("Nombre choisi:  ")
@@ -12,8 +15,20 @@ def ask_for_the_init_number (init_base):
         init_number = input ("Nombre incorrect, veuillez réessayer:  ")
     return init_number
 
+        
+def ask_for_the_init_base ():
+    init_base = input("Base d'origine du nombre (en chiffre):  ")
+    while not (is_a_valid_base (init_base)) == True:
+        init_base = input ("Base incorrecte, veuillez réessayer:  ")
+    return init_base
+
+
+
+def is_a_valid_base(base):
+    return base == "2" or base == "10" or base == "16"
+
+
 def is_a_valid_number (number,base):
-    flm = 0
     number = f"{number}"
     if base == "2":
         for i in number:
@@ -30,15 +45,8 @@ def is_a_valid_number (number,base):
             if not i in hex_number_valid_chars:
                 return False
         return True
-        
-def ask_for_the_init_base ():
-    init_base = input("Base d'origine du nombre (en chiffre):  ")
-    while not (is_a_valid_base (init_base)) == True:
-        init_base = input ("Base incorrecte, veuillez réessayer:  ")
-    return init_base
 
-def is_a_valid_base(base):
-    return base == "2" or base == "10" or base == "16"
+
 
 def dec_to_bin (init_number):
     power = 0
@@ -55,6 +63,7 @@ def dec_to_bin (init_number):
         power = power - 1
     return target_number
 
+
 def bin_to_dec (init_number):
     target_number = 0
     init_number = f"{init_number}"
@@ -62,7 +71,8 @@ def bin_to_dec (init_number):
     for i in init_number:
             target_number = target_number + ((2 ** power) * (bin_number_valid_chars.index(i)))
             power = power - 1
-    return target_number 
+    return target_number
+
 
 def dec_to_hex (init_number):
     power = 0
@@ -95,6 +105,7 @@ def dec_to_hex (init_number):
             multiplicator = 0
             power = power - 1
     return target_number
+
 
 def hex_to_dec(init_number):
     target_number = 0
