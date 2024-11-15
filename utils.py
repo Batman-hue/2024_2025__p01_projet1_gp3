@@ -25,7 +25,7 @@ def ask_for_the_init_base ():     # Demande dans quelle base le nombre fourni se
 
 
 def is_a_valid_base(base):     # Vérifie si la base donnée est supportée par le programme.
-    return base == "2" or base == "10" or base == "16"
+    return base in valid_base
 
 
 def is_a_valid_number (number,base):     # Vérifie si le nombre est valide dans la base donnée.
