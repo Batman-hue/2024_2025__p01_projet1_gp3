@@ -27,11 +27,13 @@ def dec_hex_bin_to_dec_hex_bin(init_base,init_number,target_base):
     return target_number
 
 
+
 def retry(answer):     # Permet de refaire une conversion à la fin du code.
     if  answer == "oui":
         return get_infos()
     elif answer == "non":
-        return "Bonne journée ! "
+        print("Bonne journée !")
+        return 
     else:
         return retry(input ("Répondez par oui/non:   "))     # Relance la demande si la réponse fournie n'est pas supportée par le programme.
 
